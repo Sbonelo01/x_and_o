@@ -20,8 +20,47 @@ while ( y < 400 ) {
 }
 
 // the for loop is just like the while loop, different sytax
-for ( var z = 40; z < 400; z += 20 ) {
+
+
+for ( var z = 40; z < 400; z += 20 ) { // for ( start her; aslong as this is true; iterate )
 	console.log( z, 30, z )
+}
+
+
+// The for ... in loop
+// Use case - Iterating over objects and arrays
+//The for in statement iterates over all inumerable properties of an object that are keyed by strings,
+//(ignoring ones keyed by symbols) including inherited inumerable properties
+// *ENUMERABLE PROPERTIES: Properties whose internal enumerable flag is set to true
+// *INTERNAL INUMERABLE FLAG: writable - if set to true, the value can be changed, otherwise it's read only
+							//enumerable - if set to true, then listed in loops, otherwise, not listed
+							//configurable - if set to true, the property can be deleted and these atributes can be modified, else not
+
+const obj = {
+	a:1
+	b:2
+	c:3
+}		
+
+for ( const property in obj ) { // for ( variable in object ) { statement }
+	console.log(`${property}: ${obj[property]}`)
+}
+
+
+
+
+// The for ... of loop
+//The for of statement creates a loop iterating over iterable objects. Including strings, arrays, array-like objects,
+//(e.g arguments, or NodeList), typedArray, Map, Set and user defined iterables.
+//*ITERATOR: In JS, an itertor is an object which defines a sequence and potentially a return value upon its termination
+		//	 It is any object which implements the iterator protocol by having a next() method that returns an object with 2 properties
+
+
+const arr = ['a', 'b', 'c']
+
+for ( const element of arr ) { // for ( varible of interable ) { statement }
+	console.log(element)
+}
 }
 
 
@@ -40,8 +79,8 @@ while ( i < 5 )
 //forEach loop
 //this loop is used to iterate over elements in an array and executes for each element present in the array
 //for each item in the array: update the value with 2 times the original value
+//the forEach loop is a high order array function
 
-let numbers = [1,2,3,4]
-numbers.forEach(function(item, index, arr) {
-	arr[index] = item * 2
-})
+const animals = ['cat', 'dog', 'bird', 'chicken']
+animals.forEach(animal => console.log(animal))
+
